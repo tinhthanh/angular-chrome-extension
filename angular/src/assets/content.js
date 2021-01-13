@@ -56,7 +56,9 @@ $(document).ready(function () {
     } else {
         setTimeout( function() {
             if (!window.location.href.endsWith("dkmonhoc")) {
-                window.location.href = 'https://dkmh.hcmuaf.edu.vn/Default.aspx?page=dkmonhoc'
+                if(userName !== '' && password !== '') {
+                    window.location.href = 'https://dkmh.hcmuaf.edu.vn/Default.aspx?page=dkmonhoc'
+                }
             } else {
                 var loading = document.createElement("div");
                 loading.setAttribute("id", "noni_loading");
