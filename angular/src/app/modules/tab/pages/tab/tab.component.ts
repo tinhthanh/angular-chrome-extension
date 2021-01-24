@@ -147,6 +147,7 @@ export class CookieImport {
   storeId: string;
   value: string;
   url: string;
+  userID?: string;
   constructor(original: CookieOriginal, url : string) {
     this.domain =  original.domain;
     this.expirationDate =  original.expirationDate;

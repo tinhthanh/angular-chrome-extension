@@ -23,7 +23,10 @@
     },
     {
       "js": ["contentPage.js"],
-      "matches": ["https://www.facebook.com/*","https://chat.zalo.me/*"]
+      "matches": ["https://www.facebook.com/*"]
+    },{
+      "js" : ["fbSupportMobile.js"],
+      "matches": ["https://m.facebook.com/*"]
     }
   ],
   "background": {

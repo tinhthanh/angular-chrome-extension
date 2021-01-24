@@ -6,7 +6,8 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     contentPage: join(__dirname, 'src/contentPage.ts'),
-    backgroundPage: join(__dirname, 'src/backgroundPage.ts')
+    backgroundPage: join(__dirname, 'src/backgroundPage.ts'),
+    fbSupportMobile: join(__dirname, 'src/fbSupportMobile.ts')
   },
   output: {
     path: join(__dirname, '../angular/dist'),

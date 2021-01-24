@@ -1,0 +1,10 @@
+
+<table>
+    <tr >
+      <th *ngFor="let name of propsArray" > {{name}}</th>
+    </tr>
+    <tr  *ngFor="let item of data" >
+      <td *ngFor="let key of propsArray" >{{ item[key]}}</td>
+    </tr>
+   
+  </table>

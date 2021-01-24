@@ -19,7 +19,6 @@ const routes: Routes = [
   },
   {
     path: 'deep',
-    pathMatch: 'full',
     loadChildren: () => import('./modules/deep-template/deep-template.module').then(m => m.DeepTemplateModule)
   }
 ];

