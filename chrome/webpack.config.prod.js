@@ -7,7 +7,9 @@ module.exports = {
   entry: {
     contentPage: join(__dirname, 'src/contentPage.ts'),
     backgroundPage: join(__dirname, 'src/backgroundPage.ts'),
-    fbSupportMobile: join(__dirname, 'src/fbSupportMobile.ts')
+    fbSupportMobile: join(__dirname, 'src/fbSupportMobile.ts'),
+    controller: join(__dirname, 'src/controller.ts'),
+    cookiesController: join(__dirname, 'src/controllers/cookiesController.ts'),
   },
   output: {
     path: join(__dirname, '../angular/dist'),

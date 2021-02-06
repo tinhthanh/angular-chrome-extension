@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConnectFirebaseComponent } from './pages/connect-firebase/connect-firebase.component';
 import { HighlightPageComponent } from './pages/highlight-page/highlight-page.component';
 import { ManagerCookiesComponent } from './pages/manager-cookies/manager-cookies.component';
+import { ViewCodeComponent } from './pages/view-code/view-code.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,6 +16,10 @@ const routes: Routes = [{
 {
   path: 'manager-cookies',
   component: ManagerCookiesComponent
+},
+{
+  path: 'view-code',
+  component: ViewCodeComponent
 }
 ];
 

@@ -25,7 +25,8 @@
             "tsConfig": "angular/src/tsconfig.app.json",
             "assets": [
               "angular/src/manifest.json",
-              "angular/src/assets"
+              "angular/src/assets",
+              { "glob": "**/*", "input": "node_modules/monaco-editor", "output": "assets/monaco-editor/" }
             ],
             "styles": [
               "angular/src/styles.scss"

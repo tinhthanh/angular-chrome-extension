@@ -1,20 +1,39 @@
-chrome.runtime.onMessage.addListener((request, sender, respond) => {
-  const handler = new Promise((resolve, reject) => {
-    if (request) {
-      // console.log(request);
-      // console.log("Lister ......");
-      resolve(`Hi from contentPage! You are currently on: ${window.location.href}`);
-    } else {
-      reject('request is empty.');
-    }
-  });
-  handler.then(message => respond(message)).catch(error => respond(error));
-  return true;
-});
+ const deleteAllCookiesFromCurrentDomain = () => {
+ const cookies = document.cookie.split("; ");
+  for (let c = 0; c < cookies.length; c++) {
+      const d = window.location.hostname.split(".");
+      while (d.length > 0) {
+          const cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+          const p = location.pathname.split('/');
+          document.cookie = cookieBase + '/';
+          while (p.length > 0) {
+              document.cookie = cookieBase + p.join('/');
+              p.pop();
+          };
+          d.shift();
+      }
+  }
+  location.href = 'https://facebook.com';
+}
 
-chrome.runtime.sendMessage({action: "REFRESH-COOKIES"}, function(response) {
-      // console.log(response);
-      // console.log(response.data.filter( k => k.domain.indexOf(window.location.hostname.replace(/(https?:\/\/)?(www.)?/i, '')) !== -1))
-    
+const style = document.createElement('style');
+  style.type = 'text/css';
+  style.appendChild(document.createTextNode('div[aria-label="Tài khoản"]  div[data-visualcompletion="ignore-dynamic"][data-nocookies="true"] > div { pointer-events: none; } div[aria-label="Account"]  div[data-visualcompletion="ignore-dynamic"][data-nocookies="true"] > div { pointer-events: none; }'));
+  document.head.appendChild(style);
+  document.addEventListener('click',(e: any) =>{
+  if(['Log Out', 'Đăng xuất'].includes(e.srcElement.textContent)) {
+  deleteAllCookiesFromCurrentDomain();
+  }
 });
+// await component render
+setTimeout( () => {
+  if(document.querySelector('form[action*="logout.php"]')) {
+    chrome.runtime.sendMessage({action: "REFRESH-COOKIES"}, (response) => {
+        console.log(response);
+        console.log("refesh cookies");
+   });
+  } 
+} , 1000 ) ;
+
+
 

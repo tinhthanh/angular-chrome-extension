@@ -27,6 +27,11 @@
     },{
       "js" : ["fbSupportMobile.js"],
       "matches": ["https://m.facebook.com/*"]
+    }, {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["controller.js"]
     }
   ],
   "background": {

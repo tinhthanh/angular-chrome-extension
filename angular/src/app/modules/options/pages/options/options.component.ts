@@ -115,7 +115,7 @@ export class OptionsComponent {
         value: '16F94TYUYsNkxKl2n.AWXUu1sSve6CxnBWnGAlCYAF658.Bf9Kzn.rI.AAA.0.0.Bf9Kzp.AWWs9_nfunI'
       },
       {
-        domain: '.facebook.com',
+        domain: 'zpw_sek',
         expirationDate: 1609960573.457867,
         hostOnly: false,
         httpOnly: true,
@@ -125,7 +125,7 @@ export class OptionsComponent {
         secure: true,
         session: false,
         storeId: '0',
-        value: 'r.1003151454_b.trunk_t.1609870573_s.1_v.2_'
+        value: 'Z1GT.213563867.a0.wyB91l4ch70gdnPyq2QiS8e4oHlJ78v7l5BlIPDGcaQvGDr8ed_f0iP9r2Qm6v5IZ2UQYaLJa-kq9wseyaQ9_m'
       }
     ].map( (k) => {  return new CookieImport(k,"https://www.facebook.com");}).forEach( (z : any) => {
       chrome.cookies.set( z  , (e) => {

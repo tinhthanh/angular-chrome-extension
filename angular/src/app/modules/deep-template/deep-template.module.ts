@@ -13,6 +13,12 @@ import { ConnectFirebaseComponent } from './pages/connect-firebase/connect-fireb
 import { ManagerCookiesComponent } from './pages/manager-cookies/manager-cookies.component'
 import { CookiesService } from './services/cookies.service';
 import { UsersService } from './services/users.service';
+import { ViewCodeComponent } from './pages/view-code/view-code.component';
+
+import { FormsModule } from '@angular/forms';
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
+
+
 @NgModule({
   declarations: [
     HighlightDirective,
@@ -20,13 +26,16 @@ import { UsersService } from './services/users.service';
     DynamicTableComponent,
     ConnectFirebaseComponent,
     ManagerCookiesComponent,
+    ViewCodeComponent,
   ],
   imports: [
     CommonModule,
+    FormsModule,
     DeepTemplateRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MonacoEditorModule
   ],
   providers: [ CookiesService, UsersService]
 })

@@ -13,6 +13,7 @@ export class ManagerCookiesComponent implements OnInit {
   list: UserOriginal[] = [];
   Object = Object;
   cookies: any[];
+  currentSelected = [];
   constructor(@Inject(TAB_ID) readonly tabId: number,private cookiesService: CookiesService, private usersService: UsersService) { }
 
   ngOnInit(): void {
@@ -23,11 +24,13 @@ export class ManagerCookiesComponent implements OnInit {
     }
     public viewMore(item) {
       this.cookiesService.getListByCondition( (ref) =>  ref.where( 'userID','==' , item.userID)).subscribe( z => {
+        console.log(z)
           item.child = this.groupBy((z || []), (pre) => pre.domain );
       }) ;
     }
     login(cookies, key: string) {
-      this,this.removeAllCookieAllByDomain(key);
+      this.removeAllCookieAllByDomain(key);
+      this.currentSelected = cookies;
         (cookies|| []).map( (k) => { delete  k['userID']; delete k['id']; return k ;}).forEach( (z : any) => {
           chrome.cookies.set( this.Object.assign( {},z)  , (e) => {});
         });
