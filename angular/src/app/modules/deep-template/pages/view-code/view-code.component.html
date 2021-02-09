@@ -1,3 +1,76 @@
-<div class="container-code">
-    <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
-</div>
+<nz-layout>
+    <nz-sider nzTheme="dark" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+        <div class="logo"></div>
+        <ul nz-menu nzTheme="dark" nzMode="inline">
+            <li  *ngFor="let item of menu" nz-submenu [nzTitle]="item.domain"  nz-submenu  nzIcon="global">
+                <ul>
+                    <li *ngFor="let action of item.actionType" (click)="openCode(action)"  nz-menu-item>{{action.actionType}}</li>
+                    <li nz-menu-item>
+                        <button (click)="showModalActionType(item)" nz-button nzType="primary" [nzSize]="size" nzShape="round"><i nz-icon
+                            nzType="plus-circle"></i><span *ngIf="!isCollapsed">Add Action</span></button>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li  (click)="showModalAddDomain()"  *ngIf="!isCollapsed" nz-menu-item>
+                <button nz-button nzType="primary" [nzSize]="size" nzShape="round"><i nz-icon
+                        nzType="plus-circle"></i><span *ngIf="!isCollapsed">Add Domain</span></button>
+            </li>
+            <li (click)="showModalAddDomain()" *ngIf="isCollapsed" nz-menu-item>
+                <i nz-icon nzType="plus-circle"></i>
+                <span>Add</span>
+              </li>
+        </ul>
+    </nz-sider>
+    <nz-layout >
+        <nz-header nzTheme="dark">
+            <ul nz-menu nzTheme="dark" nzMode="horizontal">
+                <li nz-menu-item><i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+                        (click)="isCollapsed = !isCollapsed"></i>
+                </li>
+                <li nz-menu-item>
+                    <nz-button-group  [nzSize]="size">
+                        <button  nz-button nzType="primary" (click)="saveCode()" ><i nz-icon nzType="left"></i>Save</button>
+                        <button  nz-button nzType="primary" (click)="isCompare = !isCompare" > {{isCompare ? "View code" : "Comparator" }}<i nz-icon nzType="right"></i></button>
+                    </nz-button-group>
+                </li>
+            </ul>
+
+        </nz-header>
+        <nz-content nzTheme="dark">
+            <!-- <nz-breadcrumb>
+          <nz-breadcrumb-item>User</nz-breadcrumb-item>
+          <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+        </nz-breadcrumb> -->
+            <div  nzTheme="dark" class="inner-content">
+                <div *ngIf="actionTypeSelected" class="container-code">
+                    <ngx-monaco-editor *ngIf="!isCompare" [options]="editorOptions" [(ngModel)]="actionTypeSelected.code"></ngx-monaco-editor>
+                    <ngx-monaco-diff-editor *ngIf="isCompare" [options]="editorOptions" [original]="originalCode" [modified]="actionTypeSelected.code"></ngx-monaco-diff-editor>
+                </div>
+            </div>
+        </nz-content>
+        <nz-footer>Alex Huỳnh: (098 177 3084)</nz-footer>
+    </nz-layout>
+</nz-layout>
+
+<nz-modal  nzOkText="Ok" nzCancelText="Cancel" [(nzVisible)]="isVisibleAddDomain" nzTitle="Add domain" (nzOnCancel)="handleCancelAddDomain()" (nzOnOk)="handleOkAddDomain()">
+    <ng-container *nzModalContent>
+        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+            <input placeholder="input domain" type="text" nz-input [(ngModel)]="inputValue" />
+          </nz-input-group>
+          <ng-template #addOnBeforeTemplate>
+            <nz-select [ngModel]="'Https://'">
+              <nz-option nzLabel="Http://" nzValue="Http://"></nz-option>
+              <nz-option nzLabel="Https://" nzValue="Https://"></nz-option>
+            </nz-select>
+          </ng-template>              
+    </ng-container>
+  </nz-modal>
+
+  <nz-modal  nzOkText="Ok" nzCancelText="Cancel" [(nzVisible)]="isVisibleAddActionType" nzTitle="Add action type" (nzOnCancel)="handleCancelActionType()" (nzOnOk)="handleOkActionType()">
+    <ng-container *nzModalContent>
+        <nz-input-group nzAddOnBefore="Action Type">
+            <input placeholder="input domain" type="text" nz-input [(ngModel)]="inputValue" />
+          </nz-input-group>
+    </ng-container>
+  </nz-modal>

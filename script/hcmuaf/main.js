@@ -1,3 +1,4 @@
+// MAIN
 var STORE_USERNAME = 'STORE_USERNAME';
 var STORE_PASSWORD = 'STORE_PASSWORD';
 var userName =  localStorage.getItem(STORE_USERNAME)  || "";

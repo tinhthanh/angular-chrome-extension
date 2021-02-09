@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NzButtonSize } from 'ng-zorro-antd/button';
+import { first } from 'rxjs/operators';
+import {MDomainService, MDomain } from '../../services/manager-script/m-domain.service';
+import {MScriptService, MScript } from '../../services/manager-script/m-script.service';
 
 @Component({
   selector: 'app-view-code',
@@ -6,50 +10,78 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-code.component.scss']
 })
 export class ViewCodeComponent implements OnInit {
-  editorOptions = {theme: 'vs-dark', language: 'typescript',   roundedSelection: true, autoIndent: "full"};
-  code: string = `
-  const deleteAllCookiesFromCurrentDomain = () => {
-    const cookies = document.cookie.split("; ");
-     for (let c = 0; c < cookies.length; c++) {
-         const d = window.location.hostname.split(".");
-         while (d.length > 0) {
-             const cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
-             const p = location.pathname.split('/');
-             document.cookie = cookieBase + '/';
-             while (p.length > 0) {
-                 document.cookie = cookieBase + p.join('/');
-                 p.pop();
-             };
-             d.shift();
-         }
-     }
-     location.href = 'https://facebook.com';
-   }
-   
-   const style = document.createElement('style');
-     style.type = 'text/css';
-     style.appendChild(document.createTextNode('div[aria-label="Tài khoản"]  div[data-visualcompletion="ignore-dynamic"][data-nocookies="true"] > div { pointer-events: none; } div[aria-label="Account"]  div[data-visualcompletion="ignore-dynamic"][data-nocookies="true"] > div { pointer-events: none; }'));
-     document.head.appendChild(style);
-     document.addEventListener('click',(e: any) =>{
-     if(['Log Out', 'Đăng xuất'].includes(e.srcElement.textContent)) {
-     deleteAllCookiesFromCurrentDomain();
-     }
-   });
-   // await component render
-   setTimeout( () => {
-     if(document.querySelector('form[action*="logout.php"]')) {
-       chrome.runtime.sendMessage({action: "REFRESH-COOKIES"}, (response) => {
-           console.log(response);
-           console.log("refesh cookies");
-      });
-     } 
-   } , 1000 ) ;
-   
-  `;
-  originalCode: string = 'function x() { // TODO }';
-  constructor() { }
+  isCompare = false;
+  isCollapsed = false;
+  size: NzButtonSize = 'default';
+  editorOptions = {theme: 'vs-dark', language: 'javascript',   roundedSelection: true, autoIndent: "full",  fontSize: 13};
+  originalCode ;
+  isVisibleAddDomain = false;
+  isVisibleAddActionType  = false; 
+  inputValue: string = '';
+  menu: Menu[] = [];
+  domainSelected: Menu ;
+  actionTypeSelected: MScript ;
+  constructor(private mDomainService: MDomainService , private mSriptService: MScriptService) { }
 
   ngOnInit(): void {
+    this.mDomainService.getAll().subscribe( k => {
+      const b = this.groupBy(k, (pre) =>  pre.domain);
+      this.menu =  Object.keys(b).map( z => { return {domain: z , actionType: b[z]} } ) as Menu[];
+    })
+  } 
+   groupBy(list, by: (pre) => string ) {
+    return list.reduce(  (cur, pre) => {  cur[by(pre)] = [...(cur[by(pre)] || []), pre ];   return cur;} , {} )
+    } 
+
+  showModalAddDomain(): void {
+    this.isVisibleAddDomain = true;
+  }
+  openCode(data: MDomain) {
+   const temp = this.mSriptService.getListByCondition( (ref) =>  ref.where( 'domain','==' , data.domain).where('actionType','==' , data.actionType)).subscribe( z => {
+       this.actionTypeSelected = z[0] || undefined ;
+       this.originalCode = this.actionTypeSelected.code;
+       temp.unsubscribe();
+    })
+  }
+  saveCode() {
+    this.mSriptService.add(this.actionTypeSelected, this.actionTypeSelected.id);
+    this.originalCode = this.actionTypeSelected.code;
+    alert("Saved done");
+  }
+  
+  handleOkAddDomain(): void {
+    console.log('Button ok clicked!');
+    this.mSriptService.add({domain: this.inputValue,actionType: 'MAIN' , lastUpdateTime: new Date(), code: ''});
+    this.mDomainService.add({domain: this.inputValue,actionType: 'MAIN' , lastUpdateTime: new Date()})
+    .then( k => {
+      this.inputValue = '';
+    })
+    this.isVisibleAddDomain = false;
   }
 
+  handleCancelAddDomain(): void {
+    this.isVisibleAddDomain = false;
+  }
+
+  showModalActionType(item: Menu): void {
+    this.domainSelected = item;
+    this.isVisibleAddActionType = true;
+  }
+  
+  handleOkActionType(): void {
+    this.mSriptService.add({domain:this.domainSelected.domain,actionType:  this.inputValue.toUpperCase() , lastUpdateTime: new Date(), code: ''});
+    this.mDomainService.add({domain:this.domainSelected.domain,actionType:  this.inputValue.toUpperCase(), lastUpdateTime: new Date()})
+    .then( k => {
+      this.inputValue = '';
+    })
+    this.isVisibleAddActionType = false;
+  }
+
+  handleCancelActionType(): void {
+    this.isVisibleAddActionType = false;
+  }
+
+}
+class Menu {
+   domain: string; actionType: MDomain[]
 }

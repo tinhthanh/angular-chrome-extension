@@ -1,11 +1,8 @@
-
-// console.log('background script loaded');
-
-import { CookieController } from "./controllers/cookiesController";
-
+import { CookieController } from "./controllers/cookies.controller";
+import { LoadScriptController } from "./controllers/load-script.controller";
 chrome.runtime.onInstalled.addListener(() => {
   // do something;
-   chrome.storage.sync.clear( () =>  console.log("Clear store......") );
+  chrome.storage.sync.clear(() => console.log("Clear store......"));
 });
 
 chrome.tabs.onCreated.addListener((tab) => {
@@ -27,17 +24,13 @@ chrome.runtime.onMessage.addListener((request, sender, respond) => {
         CookieController.updateCookie(og);
         resolve({ data: cookies });
       });
-       
-    } else if(request.action == 'CONTROLLER') {
-      let script = "";
-        if(request.domain === 'facebook.com') {
-           const actionType = request.actionType || "MAIN";
-           script += "console.log('" +actionType+ "');";
-         }
-        script += "console.log('" +request.domain+ "');";
-      resolve({ script: script });
-      } else {
-      reject('request is empty.');
+    } else if (request.action == 'CONTROLLER') {
+      const actionType = request.actionType || "MAIN";
+      LoadScriptController.loadScriptByDomain(request.domain, actionType).then((code) => {
+        resolve({ script: code });
+      });
+    } else {
+      reject('//request is empty.');
     }
   });
   handler.then(message => respond(message)).catch(error => respond(error));

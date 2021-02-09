@@ -11,9 +11,7 @@
 //     handler.then(message => respond(message)).catch(error => respond(error));
 //     return true;
 //   });
-    const url = new URL(window.location.href);
-    const actionType = url.searchParams.get("actionType");
-    chrome.runtime.sendMessage({action: "CONTROLLER", domain: window.location.hostname.replace(/(https?:\/\/)?(www.)?/i, ''), actionType: actionType }, (response) => {
+    chrome.runtime.sendMessage({action: "CONTROLLER", domain: window.location.hostname.replace(/(https?:\/\/)?(www.)?/i, ''), actionType: new URL(window.location.href).searchParams.get("actionType") }, (response) => {
         console.log(response);
         let style = window.document.createElement('script');
         style.setAttribute("type",'text/javascript');

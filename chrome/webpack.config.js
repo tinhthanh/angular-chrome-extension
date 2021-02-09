@@ -5,12 +5,13 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    contentPage: join(__dirname, 'src/contentPage.ts'),
-    backgroundPage: join(__dirname, 'src/backgroundPage.ts'),
-    fbSupportMobile: join(__dirname, 'src/fbSupportMobile.ts'),
+    content: join(__dirname, 'src/content.ts'),
+    background: join(__dirname, 'src/background.ts'),
+    fbsupportmobile: join(__dirname, 'src/fb-support.mobile.ts'),
     controller: join(__dirname, 'src/controller.ts'),
-    cookiesController: join(__dirname, 'src/controllers/cookiesController.ts'),
-    
+    cookies: join(__dirname, 'src/controllers/cookies.controller.ts'),
+    loadscript:  join(__dirname, 'src/controllers/load-script.controller.ts'),
+    commonfirebase:  join(__dirname, 'src/controllers/common.firebase.ts')
   },
   output: {
     path: join(__dirname, '../angular/dist'),

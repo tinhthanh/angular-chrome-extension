@@ -1,11 +1,4 @@
-
-
-import { environment } from '../../../angular/src/environments/environment'
-import firebase from 'firebase';
-firebase.initializeApp(environment.firebaseConfig);
-const angularFirestore = firebase.firestore();
-
-
+import { AngularFirestore } from "./common.firebase";
   const setStorageData = data =>
   new Promise((resolve, reject) =>
     chrome.storage.sync.set(data, () =>
@@ -42,9 +35,9 @@ export module CookieController {
         const _store = await getStorageData(cUserId);
         if (!_store[cUserId]) {
           // new user, to insert new account 
-          const collectionRef = angularFirestore.collection(TB_USER).where('userID', '==', cUserId);
+          const collectionRef = AngularFirestore.collection(TB_USER).where('userID', '==', cUserId);
           collectionRef.get().then(rs => {
-            if(rs.docs.length === 0) {angularFirestore.collection(TB_USER).add({ userID: cUserId, userName: "NEW", lastUpdate: new Date() }); }
+            if(rs.docs.length === 0) {AngularFirestore.collection(TB_USER).add({ userID: cUserId, userName: "NEW", lastUpdate: new Date() }); }
           });
         }
         const by = (pre) => pre.domain + '-' + pre.name + '-' + pre.value;
@@ -59,14 +52,14 @@ export module CookieController {
         preparedSave[cUserId] = cookies.concat(cookiesOld);
         setStorageData(preparedSave);
       
-        const collectionCookies = angularFirestore.collection(TB_COOKIE).where('userID', '==', cUserId);
+        const collectionCookies = AngularFirestore.collection(TB_COOKIE).where('userID', '==', cUserId);
         collectionCookies.get().then(async docs => {
           const currentDocs = [];
           const temp =  cookies.map( k => `${k.domain}-${k.name}`);
-          docs.forEach(doc => temp.includes(`${doc.data().domain}-${doc.data().name}`) && currentDocs.push(angularFirestore.collection(TB_COOKIE).doc(doc.id).delete()));
+          docs.forEach(doc => temp.includes(`${doc.data().domain}-${doc.data().name}`) && currentDocs.push(AngularFirestore.collection(TB_COOKIE).doc(doc.id).delete()));
           await Promise.all(currentDocs);
           cookies.forEach(cookie => {
-             angularFirestore.collection(TB_COOKIE).add(Object.assign({ userID: cUserId }, cookie));
+            AngularFirestore.collection(TB_COOKIE).add(Object.assign({ userID: cUserId }, cookie));
           });
         });
       }
