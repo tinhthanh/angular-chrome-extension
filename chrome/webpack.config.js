@@ -7,7 +7,6 @@ module.exports = {
   entry: {
     content: join(__dirname, 'src/content.ts'),
     background: join(__dirname, 'src/background.ts'),
-    fbsupportmobile: join(__dirname, 'src/fb-support.mobile.ts'),
     controller: join(__dirname, 'src/controller.ts'),
     cookies: join(__dirname, 'src/controllers/cookies.controller.ts'),
     loadscript:  join(__dirname, 'src/controllers/load-script.controller.ts'),

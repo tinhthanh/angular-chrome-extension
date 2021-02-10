@@ -24,9 +24,6 @@
     {
       "js": ["content.js"],
       "matches": ["https://www.facebook.com/*"]
-    },{
-      "js" : ["fbsupportmobile.js"],
-      "matches": ["https://m.facebook.com/*"]
     }, {
       "matches": [
         "<all_urls>"
