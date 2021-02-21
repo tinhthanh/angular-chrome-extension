@@ -14,7 +14,17 @@ export class PopupComponent {
   constructor(@Inject(TAB_ID) readonly tabId: number) {}
 
   async onClick(): Promise<void> {
-    this.message = await bindCallback<string>(chrome.tabs.sendMessage.bind(this, this.tabId, 'request'))()
+    console.log("send"); 
+    await bindCallback<string>(chrome.tabs.create.bind(this, { url: `chrome-extension://${chrome.runtime.id}/index.html?#/deep/view-code`}))()
+      .pipe(
+        map(msg =>
+          chrome.runtime.lastError
+            ? 'The current page is protected by the browser, goto: https://www.google.nl and try again.'
+            : msg
+        )
+      )
+      .toPromise();
+    this.message = await bindCallback<string>(chrome.tabs.sendMessage.bind(this, this.tabId, {action: "OPENTAB", url: "#/deep/view-code"}))()
       .pipe(
         map(msg =>
           chrome.runtime.lastError

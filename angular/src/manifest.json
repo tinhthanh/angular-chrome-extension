@@ -4,18 +4,18 @@
   "short_name": "Community Tool",
   "version": "1.0.0",
   "description": "Community Tool Copyright Alex Huynh ",
-  "permissions": [ "cookies","storage","tabs", "http://*/*", "https://*/*" ,  "nativeMessaging", "background"],
+  "permissions": ["notifications", "cookies","storage","tabs", "http://*/*", "https://*/*" ,  "nativeMessaging", "background"],
   "options_page": "index.html?#/options",
   "icons": {
     "128": "assets/icon128.png",
     "48": "assets/icon48.png",
     "16": "assets/icon16.png"
   },
-  "page_action": {
-    "default_icon": "assets/icon16.png",
-    "default_popup": "index.html?#/options",
-    "default_title": "Community Tool"
+  "browser_action": {
+    "default_popup": "index.html?#/popup",
+    "default_title": "Angular Chrome Extension"
   },
+  
   "content_scripts": [
     {
       "js": ["assets/jquery-3.1.0.min.js"],

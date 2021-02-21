@@ -14,9 +14,9 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
 });
 
 chrome.runtime.onMessage.addListener((request, sender, respond) => {
-  // console.log(sender.tab ?
-  //   "from a content script:" + sender.tab.url :
-  //   "from the extension");
+  console.log(sender.tab ?
+    "from a content script:" + sender.tab.url :
+    "from the extension");
   const handler = new Promise((resolve, reject) => {
     if (request.action == "REFRESH-COOKIES") {
       chrome.cookies.getAll({}, (cookies: chrome.cookies.Cookie[]) => {
@@ -29,6 +29,9 @@ chrome.runtime.onMessage.addListener((request, sender, respond) => {
       LoadScriptController.loadScriptByDomain(request.domain, actionType).then((code) => {
         resolve({ script: code });
       });
+    } else if(request.action == 'OPENTAB') {
+      console.log(request);
+         isLoginFb();
     } else {
       reject('//request is empty.');
     }
@@ -37,3 +40,22 @@ chrome.runtime.onMessage.addListener((request, sender, respond) => {
   return true;
 });
 
+const isLoginFb  = () => {
+      chrome.cookies.get({
+        url: "https://facebook.com",
+        name: "c_user"
+    }, e => {
+        null !== e ? (chrome.storage.local.set({
+            c_user: e
+        }), chrome.tabs.create({
+            url: chrome.extension.getURL("index.html")
+        })) : (chrome.tabs.create({
+            url: "https://www.facebook.com/"
+        }), chrome.notifications.create({
+            type: "basic",
+            title: "Error",
+            message: "Please Log on Facebook first!",
+            iconUrl: "favicon.png"
+        }))
+    })
+}

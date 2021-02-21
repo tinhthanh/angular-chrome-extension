@@ -1,7 +1,451 @@
-<h1>Popup</h1>
-<p>You can easily send messages from the popup to the content page with the provided Tab ID!
-  (tabId=<strong>{{ tabId }}</strong>)</p>
+<!-- <div  class="broad-pop"> 
+  <h1>Popup</h1>
+  <p>You can easily send messages from the popup to the content page with the provided Tab ID!
+    (tabId=<strong>{{ tabId }}</strong>)</p>
+  
+  <button (click)="onClick()">Click me to test</button>
+  
+  <p><strong>{{ message }}</strong></p>
+</div>
+ -->
 
-<button (click)="onClick()">Click me to test</button>
-
-<p><strong>{{ message }}</strong></p>
+<div class="App__container___3VSrl">
+  <div class="styles__container___21oZS">
+    <div class="cur-p">
+      <img src="assets/img/popup/icon48.png"  style=" width: 34px; height: auto;" />
+    </div>
+    <div class="styles__btnIcon___3vtfX" style="right: 40px;"><svg width="18" height="16" fill="none"
+        viewBox="0 0 18 16" style="width: 22px; height: 18px;">
+        <path
+          d="M16.023 8.098v-.354C16.043 3.748 12.902.5 9.01.5S1.977 3.768 1.977 7.764v.354a2.453 2.453 0 00-1.31 2.185v2.756c0 1.339 1.079 2.441 2.389 2.441h1.907c.56 0 1.002-.472 1.002-1.024v-5.61c0-.57-.462-1.023-1.002-1.023H4v-.099C4 4.89 6.235 2.547 9.01 2.547c2.774 0 5.01 2.343 5.01 5.197v.099h-.964c-.559 0-1.002.472-1.002 1.023v5.59c0 .572.462 1.024 1.002 1.024h1.888c1.31 0 2.39-1.102 2.39-2.44v-2.756c0-.945-.52-1.772-1.31-2.186z"
+          fill="currentColor"></path>
+      </svg></div>
+    <div class="styles__btnIcon___3vtfX"><svg width="20" height="20" fill="none">
+        <path d="M12.5 10a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0z" stroke="#666" stroke-width="1.667" stroke-linecap="round"
+          stroke-linejoin="round"></path>
+        <path
+          d="M12.5 3.833a1.375 1.375 0 001.517-.275l.05-.05a1.667 1.667 0 112.358 2.359l-.05.05a1.376 1.376 0 00-.275 1.516 1.375 1.375 0 001.258.834h.142a1.667 1.667 0 110 3.333h-.075a1.375 1.375 0 00-1.258.9 1.375 1.375 0 00.275 1.517l.05.05a1.667 1.667 0 11-2.359 2.358l-.05-.05a1.375 1.375 0 00-1.516-.275 1.375 1.375 0 00-.834 1.258v.142a1.666 1.666 0 11-3.333 0v-.075a1.375 1.375 0 00-.9-1.258 1.375 1.375 0 00-1.517.275l-.05.05a1.668 1.668 0 11-2.358-2.359l.05-.05a1.375 1.375 0 00.275-1.516V12.5a1.374 1.374 0 00-1.258-.833H2.5a1.667 1.667 0 110-3.334h.075A1.375 1.375 0 003.833 7.5a1.375 1.375 0 00-.275-1.517l-.05-.05a1.667 1.667 0 112.359-2.358l.05.05a1.375 1.375 0 001.516.275H7.5a1.375 1.375 0 00.833-1.258V2.5a1.667 1.667 0 013.334 0v.075a1.375 1.375 0 00.833 1.258v0z"
+          stroke="#666" stroke-width="1.667" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg></div>
+  </div>
+  <section class="styles__container___eYVvh"><button data-tip="true" data-for="tooltipSetting"
+      style="background-color: rgb(239, 239, 239); border-top: 3px solid rgb(29, 161, 242);"><img
+        src="assets/img/popup/setting.svg" alt="">
+      <p>Setting</p>
+    </button><button data-tip="true" data-for="tooltipGame" style="position: relative;"><img
+        src="assets/img/popup/game.svg" alt="">
+      <p>Game Center</p>
+      <div class="styles__need_review___IJhFr">0</div>
+    </button><button data-tip="true" data-for="tooltipLookUp" style=""><img
+        src="assets/img/popup/lookUp.svg" alt="">
+      <p>Look up</p>
+    </button><button data-tip="true" data-for="tooltipSupport" style="position: relative;"><img
+        src="assets/img/popup/users.svg" alt="">
+      <p>Support</p>
+    </button><button><img src="assets/img/popup/login.svg" alt="">
+      <p>Login</p>
+    </button></section>
+  <div class="styles__container___i2LSm">
+    <div class="styles__main___2vRU8">
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div> Popup Size </div>
+        </div>
+        <div class="styles__right___39D_z">
+          <div class="styles__container___2cp2N">
+            <div class="styles__btn___AMu-c"><svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                  <rect id="path-1" x="0" y="0" width="21" height="21" rx="5"></rect>
+                </defs>
+                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Extension/Size-menu" transform="translate(-137.000000, -17.000000)">
+                    <g id="Size">
+                      <g id="Group-4" transform="translate(138.000000, 18.000000)">
+                        <mask id="mask-2" fill="white">
+                          <use xlink:href="#path-1"></use>
+                        </mask>
+                        <rect stroke="#838383" x="-0.5" y="-0.5" width="22" height="22" rx="5"></rect>
+                        <rect id="Rectangle-10" fill="#D8D8D8" mask="url(#mask-2)" x="-2" y="-1" width="26" height="6">
+                        </rect>
+                        <rect id="Rectangle-10" fill="#D8D8D8" mask="url(#mask-2)" x="2" y="6" width="17" height="10">
+                        </rect>
+                        <rect id="Rectangle-10" fill="#D8D8D8" mask="url(#mask-2)" x="2" y="17" width="17" height="2">
+                        </rect>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg></div>
+            <div class="styles__btn___AMu-c"><svg xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+                <defs>
+                  <rect id="c" width="32" height="32" rx="5"></rect>
+                </defs>
+                <g fill="none" fill-rule="evenodd" transform="translate(2 2)">
+                  <mask id="d" fill="#fff">
+                    <use xlink:href="#c"></use>
+                  </mask>
+                  <rect width="34" height="34" x="-.5" y="-.5" stroke="#838383" stroke-width="1" rx="5"></rect>
+                  <path fill="#D8D8D8" d="M-4-3h41V7H-4zM3 8h27v10H3zM3 19h27v4H3zM3 24h27v4H3z" mask="url(#d)"></path>
+                </g>
+              </svg></div>
+            <div class="styles__btn___AMu-c"><svg xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+                <defs>
+                  <rect id="e" width="42" height="42" rx="5"></rect>
+                </defs>
+                <g fill="none" fill-rule="evenodd" transform="translate(3 3)">
+                  <mask id="f" fill="#fff">
+                    <use xlink:href="#e"></use>
+                  </mask>
+                  <rect width="45" height="45" x="-1.5" y="-1.5" stroke="#1DA1F2" stroke-width="3" rx="5"></rect>
+                  <path fill="#D8D8D8" d="M-5-4h54V9H-5zM4 11h35v10H4zM4 22h35v5H4zM4 28h35v5H4zM4 34h35v5H4z"
+                    mask="url(#f)"></path>
+                </g>
+              </svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div> Add to doamin </div>
+        </div>
+        <div class="styles__right___39D_z">
+          <div class="styles__login_alert___-j2HE"> Login please!! </div>
+        </div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div> Domain detech </div>
+        </div>
+        <div class="styles__right___39D_z"><select>
+            <option value="auto">Auto Detect</option>
+            <option value="af">Afrikaans</option>
+            <option value="sq">Albanian</option>
+            <option value="ar">Arabic</option>
+            <option value="hy">Armenian</option>
+            <option value="az">Aerbaijani</option>
+            <option value="eu">Basque</option>
+            <option value="be">Belarusian</option>
+            <option value="bn">Bengali</option>
+            <option value="bg">Bulgarian</option>
+            <option value="ca">Catalan</option>
+            <option value="zh-CN">Chinese (simplified)</option>
+            <option value="zh-TW">Chinese (traditional)</option>
+            <option value="hr">Croatian</option>
+            <option value="cs">Czech</option>
+            <option value="da">Danish</option>
+            <option value="nl">Dutch</option>
+            <option value="en">English</option>
+            <option value="et">Estonian</option>
+            <option value="tl">Filipino</option>
+            <option value="fi">Finnish</option>
+            <option value="fr">French</option>
+            <option value="gl">Galician</option>
+            <option value="ka">Georgian</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            <option value="ht">Haitian Creole</option>
+            <option value="iw">Hebrew</option>
+            <option value="hi">Hindi</option>
+            <option value="hu">Hungarian</option>
+            <option value="is">Icelandic</option>
+            <option value="id">Indonesian</option>
+            <option value="ga">Irish</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="ko">Korean</option>
+            <option value="lv">Latvian</option>
+            <option value="lt">Lithuanian</option>
+            <option value="mk">Macedonian</option>
+            <option value="ms">Malay</option>
+            <option value="mt">Maltese</option>
+            <option value="no">Norwegian</option>
+            <option value="fa">Persian</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portuguese</option>
+            <option value="ro">Romanian</option>
+            <option value="ru">Russian</option>
+            <option value="sr">Serbian</option>
+            <option value="sk">Slovak</option>
+            <option value="sl">Slovenian</option>
+            <option value="es">Spanish</option>
+            <option value="sw">Swahili</option>
+            <option value="sv">Swedish</option>
+            <option value="th">Thai</option>
+            <option value="tr">Turkish</option>
+            <option value="uk">Ukrainian</option>
+            <option value="ur">Urdu</option>
+            <option value="vi">Vietnamese</option>
+            <option value="cy">Welsh</option>
+            <option value="yi">Yiddish</option>
+          </select></div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div> Country </div>
+        </div>
+        <div class="styles__right___39D_z"><select>
+            <option value="Afrikaans">Afrikaans</option>
+            <option value="Albanian">Albanian</option>
+            <option value="Amharic">Amharic</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Armenian">Armenian</option>
+            <option value="Azeerbaijani">Azeerbaijani</option>
+            <option value="Basque">Basque</option>
+            <option value="Belarusian">Belarusian</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Bosnian">Bosnian</option>
+            <option value="Bulgarian">Bulgarian</option>
+            <option value="Catalan">Catalan</option>
+            <option value="Cebuano">Cebuano</option>
+            <option value="Chichewa">Chichewa</option>
+            <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+            <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+            <option value="Corsican">Corsican</option>
+            <option value="Croatian">Croatian</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Dutch">Dutch</option>
+            <option value="English">English</option>
+            <option value="Esperanto">Esperanto</option>
+            <option value="Estonian">Estonian</option>
+            <option value="Filipino">Filipino</option>
+            <option value="Finnish">Finnish</option>
+            <option value="French">French</option>
+            <option value="Frisian">Frisian</option>
+            <option value="Galician">Galician</option>
+            <option value="Georgian">Georgian</option>
+            <option value="German">German</option>
+            <option value="Greek">Greek</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Haitian Creole">Haitian Creole</option>
+            <option value="Hausa">Hausa</option>
+            <option value="Hawaiian">Hawaiian</option>
+            <option value="Hebrew">Hebrew</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Hmong">Hmong</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Icelandic">Icelandic</option>
+            <option value="Igbo">Igbo</option>
+            <option value="Indonesian">Indonesian</option>
+            <option value="Irish">Irish</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Javanese">Javanese</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Kazakh">Kazakh</option>
+            <option value="Khmer">Khmer</option>
+            <option value="Korean">Korean</option>
+            <option value="Kurdish">Kurdish</option>
+            <option value="Kyrgyz">Kyrgyz</option>
+            <option value="Lao">Lao</option>
+            <option value="Latin">Latin</option>
+            <option value="Latvian">Latvian</option>
+            <option value="Lithuanian">Lithuanian</option>
+            <option value="Luxembourgish">Luxembourgish</option>
+            <option value="Macedonian">Macedonian</option>
+            <option value="Malagasy">Malagasy</option>
+            <option value="Malay">Malay</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="Maltese">Maltese</option>
+            <option value="Maori">Maori</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Mongolian">Mongolian</option>
+            <option value="Burmese">Burmese</option>
+            <option value="Nepali">Nepali</option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Pashto">Pashto</option>
+            <option value="Persian">Persian</option>
+            <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Russian">Russian</option>
+            <option value="Samoan">Samoan</option>
+            <option value="Scots Gaelic">Scots Gaelic</option>
+            <option value="Serbian">Serbian</option>
+            <option value="Sesotho">Sesotho</option>
+            <option value="Shona">Shona</option>
+            <option value="Sindhi">Sindhi</option>
+            <option value="Sinhala">Sinhala</option>
+            <option value="Slovak">Slovak</option>
+            <option value="Slovenian">Slovenian</option>
+            <option value="Somali">Somali</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Sundanese">Sundanese</option>
+            <option value="Swahili">Swahili</option>
+            <option value="Swedish">Swedish</option>
+            <option value="Tajik">Tajik</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Uzbek">Uzbek</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Welsh">Welsh</option>
+            <option value="Xhosa">Xhosa</option>
+            <option value="Yiddish">Yiddish</option>
+            <option value="Yoruba">Yoruba</option>
+            <option value="Zulu">Zulu</option>
+          </select></div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div class="styles__container___3OMhb">
+            <div class="styles__text___3Uoel">Popup Setting</div>
+            <div class="styles__tooltip_container___21A_k"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                viewBox="0 0 8 8">
+                <path fill="#6D6D6D" fill-rule="evenodd"
+                  d="M1.173 1.173C1.955.391 2.897 0 4 0s2.045.391 2.827 1.173S8 2.897 8 4s-.391 2.045-1.173 2.827S5.103 8 4 8s-2.045-.391-2.827-1.173S0 5.103 0 4s.391-2.045 1.173-2.827zm.23 5.423A3.538 3.538 0 0 0 4 7.673a3.538 3.538 0 0 0 2.596-1.077A3.538 3.538 0 0 0 7.673 4a3.538 3.538 0 0 0-1.077-2.596A3.538 3.538 0 0 0 4 .327a3.538 3.538 0 0 0-2.596 1.077A3.538 3.538 0 0 0 .327 4c0 1.013.359 1.878 1.077 2.596zm2.674-4.711c.32 0 .593.096.817.288.225.192.337.449.337.77 0 .333-.167.653-.5.96-.205.206-.327.36-.366.462-.038.103-.064.289-.077.558h-.365a1.65 1.65 0 0 1 .577-1.23c.244-.219.365-.462.365-.731a.72.72 0 0 0-.23-.558.821.821 0 0 0-.577-.212c-.308 0-.542.077-.702.231-.16.154-.234.372-.221.654h-.366c0-.795.436-1.192 1.308-1.192zm-.23 3.673a.315.315 0 0 1 .23-.096c.09 0 .167.032.23.096a.315.315 0 0 1 .097.23c0 .09-.032.167-.096.231a.315.315 0 0 1-.231.096.315.315 0 0 1-.23-.096.315.315 0 0 1-.097-.23c0-.09.032-.167.096-.231z">
+                </path>
+              </svg>
+              <div class="styles__tooltip___jpONQ">
+                <div class="styles__container___XWfKB">
+                  <div class="styles__main___1soDp">
+                    <div class="styles__text_container___3AwPf styles__hl_text___1d81o"> When I select a word or phrase:
+                    </div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Display Icon:
+                      </span><span class="styles__text_common___PC2hO"> Display icon that I can click to show popup.
+                      </span></div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Immediately
+                        Display: </span><span class="styles__text_common___PC2hO"> Display popup immediately. </span>
+                    </div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Don't Display:
+                      </span><span class="styles__text_common___PC2hO"> Don't display icon or popup. </span></div>
+                  </div>
+                  <div class="styles__triangle___2bl3C"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="styles__right___39D_z"><select>
+            <option value="popup">Immediately Display</option>
+            <option value="icon">Display Icon</option>
+            <option value="none">Don't Display</option>
+          </select></div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div class="styles__container___3OMhb">
+            <div class="styles__text___3Uoel">Auto pronunciation</div>
+            <div class="styles__tooltip_container___21A_k"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                viewBox="0 0 8 8">
+                <path fill="#6D6D6D" fill-rule="evenodd"
+                  d="M1.173 1.173C1.955.391 2.897 0 4 0s2.045.391 2.827 1.173S8 2.897 8 4s-.391 2.045-1.173 2.827S5.103 8 4 8s-2.045-.391-2.827-1.173S0 5.103 0 4s.391-2.045 1.173-2.827zm.23 5.423A3.538 3.538 0 0 0 4 7.673a3.538 3.538 0 0 0 2.596-1.077A3.538 3.538 0 0 0 7.673 4a3.538 3.538 0 0 0-1.077-2.596A3.538 3.538 0 0 0 4 .327a3.538 3.538 0 0 0-2.596 1.077A3.538 3.538 0 0 0 .327 4c0 1.013.359 1.878 1.077 2.596zm2.674-4.711c.32 0 .593.096.817.288.225.192.337.449.337.77 0 .333-.167.653-.5.96-.205.206-.327.36-.366.462-.038.103-.064.289-.077.558h-.365a1.65 1.65 0 0 1 .577-1.23c.244-.219.365-.462.365-.731a.72.72 0 0 0-.23-.558.821.821 0 0 0-.577-.212c-.308 0-.542.077-.702.231-.16.154-.234.372-.221.654h-.366c0-.795.436-1.192 1.308-1.192zm-.23 3.673a.315.315 0 0 1 .23-.096c.09 0 .167.032.23.096a.315.315 0 0 1 .097.23c0 .09-.032.167-.096.231a.315.315 0 0 1-.231.096.315.315 0 0 1-.23-.096.315.315 0 0 1-.097-.23c0-.09.032-.167.096-.231z">
+                </path>
+              </svg>
+              <div class="styles__tooltip___jpONQ">
+                <div class="styles__container___XWfKB">
+                  <div class="styles__main___1soDp">
+                    <div class="styles__text_container___3AwPf styles__hl_text___1d81o"> When I select a word or phrase:
+                    </div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Active:
+                      </span><span class="styles__text_common___PC2hO"> Automatically pronounce the word/ phrase.
+                      </span></div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Deactivate:
+                      </span><span class="styles__text_common___PC2hO"> Don't pronounce the word/ phrase until I click
+                        the sound icon. </span></div>
+                  </div>
+                  <div class="styles__triangle___2bl3C"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="styles__right___39D_z">
+          <div class="styles__switch___2GxM- false"><span class="styles__slider___1m0oP styles__round___2wfMW"></span>
+          </div>
+        </div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div class="styles__container___3OMhb">
+            <div class="styles__text___3Uoel">Show definition</div>
+            <div class="styles__tooltip_container___21A_k"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                viewBox="0 0 8 8">
+                <path fill="#6D6D6D" fill-rule="evenodd"
+                  d="M1.173 1.173C1.955.391 2.897 0 4 0s2.045.391 2.827 1.173S8 2.897 8 4s-.391 2.045-1.173 2.827S5.103 8 4 8s-2.045-.391-2.827-1.173S0 5.103 0 4s.391-2.045 1.173-2.827zm.23 5.423A3.538 3.538 0 0 0 4 7.673a3.538 3.538 0 0 0 2.596-1.077A3.538 3.538 0 0 0 7.673 4a3.538 3.538 0 0 0-1.077-2.596A3.538 3.538 0 0 0 4 .327a3.538 3.538 0 0 0-2.596 1.077A3.538 3.538 0 0 0 .327 4c0 1.013.359 1.878 1.077 2.596zm2.674-4.711c.32 0 .593.096.817.288.225.192.337.449.337.77 0 .333-.167.653-.5.96-.205.206-.327.36-.366.462-.038.103-.064.289-.077.558h-.365a1.65 1.65 0 0 1 .577-1.23c.244-.219.365-.462.365-.731a.72.72 0 0 0-.23-.558.821.821 0 0 0-.577-.212c-.308 0-.542.077-.702.231-.16.154-.234.372-.221.654h-.366c0-.795.436-1.192 1.308-1.192zm-.23 3.673a.315.315 0 0 1 .23-.096c.09 0 .167.032.23.096a.315.315 0 0 1 .097.23c0 .09-.032.167-.096.231a.315.315 0 0 1-.231.096.315.315 0 0 1-.23-.096.315.315 0 0 1-.097-.23c0-.09.032-.167.096-.231z">
+                </path>
+              </svg>
+              <div class="styles__tooltip___jpONQ">
+                <div class="styles__container___XWfKB">
+                  <div class="styles__main___1soDp">
+                    <div class="styles__text_container___3AwPf styles__hl_text___1d81o"> When I select a word or phrase:
+                    </div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Active:
+                      </span><span class="styles__text_common___PC2hO"> Show definitions as default. </span></div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Deactivate:
+                      </span><span class="styles__text_common___PC2hO"> Show translations as default. </span></div>
+                  </div>
+                  <div class="styles__triangle___2bl3C"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="styles__right___39D_z">
+          <div class="styles__switch___2GxM- false"><span class="styles__slider___1m0oP styles__round___2wfMW"></span>
+          </div>
+        </div>
+      </div>
+      <div class="styles__container___13YFN">
+        <div class="styles__left___njMAr">
+          <div class="styles__container___3OMhb">
+            <div class="styles__text___3Uoel">Advanced Translation settings</div>
+            <div class="styles__tooltip_container___21A_k"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"
+                viewBox="0 0 8 8">
+                <path fill="#6D6D6D" fill-rule="evenodd"
+                  d="M1.173 1.173C1.955.391 2.897 0 4 0s2.045.391 2.827 1.173S8 2.897 8 4s-.391 2.045-1.173 2.827S5.103 8 4 8s-2.045-.391-2.827-1.173S0 5.103 0 4s.391-2.045 1.173-2.827zm.23 5.423A3.538 3.538 0 0 0 4 7.673a3.538 3.538 0 0 0 2.596-1.077A3.538 3.538 0 0 0 7.673 4a3.538 3.538 0 0 0-1.077-2.596A3.538 3.538 0 0 0 4 .327a3.538 3.538 0 0 0-2.596 1.077A3.538 3.538 0 0 0 .327 4c0 1.013.359 1.878 1.077 2.596zm2.674-4.711c.32 0 .593.096.817.288.225.192.337.449.337.77 0 .333-.167.653-.5.96-.205.206-.327.36-.366.462-.038.103-.064.289-.077.558h-.365a1.65 1.65 0 0 1 .577-1.23c.244-.219.365-.462.365-.731a.72.72 0 0 0-.23-.558.821.821 0 0 0-.577-.212c-.308 0-.542.077-.702.231-.16.154-.234.372-.221.654h-.366c0-.795.436-1.192 1.308-1.192zm-.23 3.673a.315.315 0 0 1 .23-.096c.09 0 .167.032.23.096a.315.315 0 0 1 .097.23c0 .09-.032.167-.096.231a.315.315 0 0 1-.231.096.315.315 0 0 1-.23-.096.315.315 0 0 1-.097-.23c0-.09.032-.167.096-.231z">
+                </path>
+              </svg>
+              <div class="styles__tooltip___jpONQ">
+                <div class="styles__container___XWfKB">
+                  <div class="styles__main___1soDp">
+                    <div class="styles__text_container___3AwPf styles__hl_text___1d81o"> When I select a word or phrase:
+                    </div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Display Icon:
+                      </span><span class="styles__text_common___PC2hO"> Display icon that I can click to show popup.
+                      </span></div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Immediately
+                        Display: </span><span class="styles__text_common___PC2hO"> Display popup immediately. </span>
+                    </div>
+                    <div class="styles__text_container___3AwPf"><span class="styles__hl_text___1d81o"> Don't Display:
+                      </span><span class="styles__text_common___PC2hO"> Don't display icon or popup. </span></div>
+                  </div>
+                  <div class="styles__triangle___2bl3C"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="styles__right___39D_z"><select>
+            <option value="popup">Immediately Display</option>
+            <option value="icon">Display Icon</option>
+            <option value="none">Don't Display</option>
+          </select></div>
+      </div>
+      <div class="styles__settings___QwTM7"></div>
+      <div class="styles__feedBackContainer___afL5m">
+        <div class="styles__container___1vX48" style="text-align: left;"><span>How to use Community Tool </span></div>
+        <div class="styles__feedBack___2XokW">Feedback</div>
+      </div>
+      <div class="styles__main___1hcZf"><button (click)="onClick()" class="styles__button___23KW8"><svg xmlns="http://www.w3.org/2000/svg"
+            width="31" height="22" viewBox="0 0 40 29" style="background-color: transparent;">
+            <path fill="#FFF" fill-rule="evenodd"
+              d="M32.961 26.07H19.63a.598.598 0 0 0-.219.044l-1.761.71c-.012-.002-.018-.002-.018.004v-20c0-.744.324-1.25 1-1.546a3.238 3.238 0 0 1 1.276-.261H32.96c.063 0 .095.027.095.014l.006 21.002c-.006.01-.038.033-.1.033zm-17.953.053a.613.613 0 0 0-.246-.053H1.199c-.062 0-.098-.023-.098-.015L1.098 5.054c.003-.006.039-.033.101-.033h13.486c.308 0 1.845.088 1.845 1.807V26.81c-.003.005-.01.008-.013.01l-1.509-.697zm10.639.972v.902a1 1 0 0 1-1 1.003h-2.828c-.552 0-1-.438-1-1.003v-.902h-1.075l-1.797.728a.542.542 0 0 1-.218.04c-.24 0-.464-.056-.649-.162a1.327 1.327 0 0 1-.652.163.565.565 0 0 1-.242-.052l-1.551-.717H1.199C.54 27.095 0 26.63 0 26.06V5.035C0 4.475.516 4.02 1.156 4h13.598c.739.019 1.756.294 2.362 1.106.69-.812 1.848-1.087 2.675-1.106h13.213c.64.02 1.156.475 1.156 1.035v21.024c0 .575-.538 1.036-1.199 1.036h-7.314zM3.922 8.545v1.137h9.656V8.545H3.922zm0 3.41v1.136h9.656v-1.136H3.922zm0 3.409V16.5h9.656v-1.136H3.922z">
+            </path>
+          </svg>Manager Script</button></div>
+      <div class="styles__container___2SbKd">
+        <div>Alex Huynh</div>
+        <div class="styles__go_pro_container___2U38l">
+          <div>Auto JavaScript for websites and share </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
