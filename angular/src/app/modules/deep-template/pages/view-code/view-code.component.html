@@ -4,7 +4,7 @@
         <ul nz-menu nzTheme="dark" nzMode="inline">
             <li  *ngFor="let item of menu" nz-submenu [nzTitle]="item.domain"  nz-submenu  nzIcon="global">
                 <ul>
-                    <li *ngFor="let action of item.actionType" (click)="openCode(action)"  nz-menu-item>{{action.actionType}}</li>
+                    <li *ngFor="let action of item.actionType" nz-menu-item><i (click)="deleteAction(action)" nz-icon nzType="delete" nzTheme="outline"  [nzTwotoneColor]="'#eb2f96'" ></i><span  (click)="openCode(action)" > {{action.actionType}} </span> </li>
                     <li nz-menu-item>
                         <button (click)="showModalActionType(item)" nz-button nzType="primary" [nzSize]="size" nzShape="round"><i nz-icon
                             nzType="plus-circle"></i><span *ngIf="!isCollapsed">Add Action</span></button>
