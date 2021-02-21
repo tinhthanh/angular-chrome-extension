@@ -81,7 +81,7 @@ export class ViewCodeComponent implements OnInit {
     this.isVisibleAddActionType = false;
   }
   deleteAction(actionType) {
-    var r = confirm("Do you want remove this action!");
+    const r = confirm("Do you want remove this action!");
     if (r == true) {
       const temp = this.mSriptService.getListByCondition((ref) => ref.where('domain', '==', actionType.domain).where('actionType', '==', actionType.actionType)).subscribe(z => {
         z.forEach(z => this.mSriptService.delete(z));
