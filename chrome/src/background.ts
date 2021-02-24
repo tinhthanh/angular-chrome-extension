@@ -4,7 +4,6 @@ const HEADERS_TO_STRIP_LOWERCASE = [
   'content-security-policy',
   'x-frame-options',
 ];
-
 chrome.webRequest.onHeadersReceived.addListener((details) =>{
     return {
       responseHeaders: details.responseHeaders.filter(function(header) {

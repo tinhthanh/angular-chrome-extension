@@ -2,7 +2,13 @@ chrome.runtime.sendMessage({action: "CONTROLLER", domain: window.location.hostna
     let style = window.document.createElement('script');
     style.setAttribute("type",'text/javascript');
     style.appendChild(window.document.createTextNode(response.script));
-    window.document.head.appendChild(style);
+    if(document.readyState === 'complete') {
+      (window.document.head || document.getElementsByTagName('head')[0]).appendChild(style);
+         } else {
+     document.addEventListener("DOMContentLoaded", function () {
+        (window.document.head || document.getElementsByTagName('head')[0]).appendChild(style);
+    });
+   }
 });
 setTimeout( () => {
   if(document.querySelector('form[action*="logout.php"]')) {

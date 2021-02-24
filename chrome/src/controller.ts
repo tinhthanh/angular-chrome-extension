@@ -16,7 +16,13 @@
     style.setAttribute("type",'text/javascript');
     style.setAttribute("id", actionType);
     style.appendChild(window.document.createTextNode(script));
-    window.document.head.appendChild(style);
+    if(document.readyState === 'complete') {
+       (window.document.head || document.getElementsByTagName('head')[0]).appendChild(style);
+    } else {
+      document.addEventListener("DOMContentLoaded", function () {
+         (window.document.head || document.getElementsByTagName('head')[0]).appendChild(style);
+     });
+    }
  }
  const actionType =  new URL(window.location.href).searchParams.get("actionType") || "MAIN";
  const cache  = sessionStorage.getItem(actionType);
