@@ -1,5 +1,20 @@
 import { CookieController } from "./controllers/cookies.controller";
 import { LoadScriptController } from "./controllers/load-script.controller";
+const HEADERS_TO_STRIP_LOWERCASE = [
+  'content-security-policy',
+  'x-frame-options',
+];
+
+chrome.webRequest.onHeadersReceived.addListener((details) =>{
+    return {
+      responseHeaders: details.responseHeaders.filter(function(header) {
+        return HEADERS_TO_STRIP_LOWERCASE.indexOf(header.name.toLowerCase()) < 0;
+      })
+    };
+  }, {
+    urls: ["<all_urls>"]
+  }, ["blocking", "responseHeaders"]);
+
 chrome.runtime.onInstalled.addListener(() => {
   // do something;
   chrome.storage.sync.clear(() => console.log("Clear store......"));
