@@ -149,9 +149,7 @@
         line-height: 1.33;
         overflow-x: hidden;
         overflow-y: auto;
-        height: 510px;
-
-        
+        // height: 510px;
         .styles__main___2vRU8 {
             padding: 8px 24px 11px 20px;
             select {
@@ -191,6 +189,7 @@
                 line-height: 1.33;
                 letter-spacing: normal;
                 width: 100%;
+                display: none;
                 .styles__container___3OMhb {
                     display: -webkit-box;
                     display: -ms-flexbox;

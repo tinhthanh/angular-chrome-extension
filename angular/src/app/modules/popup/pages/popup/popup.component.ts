@@ -15,7 +15,7 @@ export class PopupComponent {
 
   async onClick(): Promise<void> {
     console.log("send"); 
-    await bindCallback<string>(chrome.tabs.create.bind(this, { url: `chrome-extension://${chrome.runtime.id}/index.html?#/deep/view-code`}))()
+    await bindCallback<string>(chrome.tabs.create.bind(this, { url: `chrome-extension://${chrome.runtime.id}/index.html?#/1Xfa2t7kzAtCpAp9Sf1C`}))()
       .pipe(
         map(msg =>
           chrome.runtime.lastError

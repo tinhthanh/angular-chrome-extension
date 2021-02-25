@@ -1,0 +1,21 @@
+a[href]:not([href="/orders"]):not([href="/"]):not([href="/logout"]) , center , .navbar-brand , .alert,  .alert-info, big > a:not([href="/logout"]){
+    display: none !important;
+}
+.nav.nav-pills  {
+    display: none !important;
+}
+#charge, #chargeValueOrder {
+    display: none !important;
+}
+#order-form .form-group p{
+    display: none !important;
+}
+tr td:nth-child(4) {
+    display: none;
+}
+tr th:nth-child(4) {
+    display: none;
+}
+big{
+    color: #32363a;
+}

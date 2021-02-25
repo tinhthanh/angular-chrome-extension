@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-board.component.scss']
 })
 export class MainBoardComponent implements OnInit {
-
+    isLoading  = true;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onMyFrameLoad() {
+    this.isLoading = false;
   }
 
 }
