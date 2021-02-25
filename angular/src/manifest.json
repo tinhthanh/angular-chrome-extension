@@ -4,7 +4,7 @@
   "short_name": "Community Tool",
   "version": "1.0.0",
   "description": "Community Tool Copyright Alex Huynh ",
-  "permissions": ["webRequest", "webRequestBlocking","webview","notifications", "cookies","storage","tabs", "<all_urls>", "nativeMessaging", "background"],
+  "permissions": ["webRequest", "webRequestBlocking","notifications", "cookies","storage","tabs", "<all_urls>", "nativeMessaging", "background"],
   "options_page": "index.html?#/options",
   "icons": {
     "128": "assets/icon128.png",
