@@ -1,0 +1,10 @@
+<div [hidden]="isLoading" class="container">
+    <iframe  (load)="onMyFrameLoad()" src="https://baostar.pro" style="border: 0; width: 100%; height: 100%"></iframe>
+</div>
+<ng-container *ngIf="isLoading" >
+    <div class="loading">
+        <div id="loader-container">
+            <p id="loadingText">Loading</p>
+          </div>
+    </div>
+</ng-container>

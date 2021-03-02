@@ -1,0 +1,54 @@
+ /* login */
+a[href="/"] {
+    display: none !important;
+}
+a[href="/dang-ky" ] {
+    display: none !important;
+}
+
+p[class=" text-white h2"] {
+    display: none !important;
+}
+#fb-root {
+    display: none !important;
+}
+.theme-colors {
+    display: none !important;
+}
+ /* home */
+.search {
+    display: none !important;
+}
+a[href="/tai-khoan"] {
+    display: none !important;
+}
+.navbar-right {
+    display: none !important;
+}
+a[href="#"] {
+    display: none !important;
+}
+a[target="_blank"]:not([href="https://findids.net"]) {
+    display: none !important;
+}
+a[href="/tich-hop-dai-ly"] {
+    display: none !important;
+}
+a[href="#dv_khac"] {
+    display: none !important;
+} 
+a[href="/nap-tien"] {
+    display: none !important;
+}
+
+
+/* nap tien */
+#home-tab {
+    display: none !important;
+}
+#order {
+    display: none !important;
+}
+a[href="/nap-tien"] {
+    display: none !important;
+}

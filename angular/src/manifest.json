@@ -38,6 +38,13 @@
       "matches": [ "*://*/*" ],
       "include_globs": ["*5gsmm*"],
       "all_frames": true
+    },
+    {
+      "js": ["assets/domain/baostar/baostar.js"],
+      "css": ["assets/domain/baostar/baostar.css"],
+      "matches": [ "*://*/*" ],
+      "include_globs": ["*baostar*"],
+      "all_frames": true
     }
   ],
   "background": {
